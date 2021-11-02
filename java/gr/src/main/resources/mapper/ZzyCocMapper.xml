@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="io.renren.process.dao.ZzyCocMapper">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="io.renren.entity.ZzyCocEntity" id="zzyCocMap">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="logo" column="logo"/>
+        <result property="content" column="content"/>
+        <result property="remark" column="remark"/>
+        <result property="homeImage" column="home_image"/>
+        <result property="provinceCode" column="province_code"/>
+        <result property="cityCode" column="city_code"/>
+        <result property="townCode" column="town_code"/>
+        <result property="address" column="address"/>
+        <result property="createUser" column="create_user"/>
+        <result property="createDept" column="create_dept"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateUser" column="update_user"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="status" column="status"/>
+        <result property="isDeleted" column="is_deleted"/>
+        <result property="isImport" column="is_import"/>
+        <result property="levelId" column="level_id"/>
+        <result property="cocDomain" column="coc_domain"/>
+        <result property="locationLng" column="location_lng"/>
+        <result property="locationLat" column="location_lat"/>
+        <result property="blfsoUrl" column="blfso_url"/>
+        <result property="cocLevel" column="coc_level"/>
+    </resultMap>
+
+
+</mapper>

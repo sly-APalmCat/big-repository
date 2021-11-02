@@ -1,0 +1,50 @@
+package ${package}.${moduleName}.entity;
+
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
+
+#if(${hasBigDecimal})
+import java.math.BigDecimal;
+#end
+#if(${hasLocalDateTime})
+import java.time.LocalDateTime;
+#end
+import java.io.Serializable;
+import java.util.Date;
+import lombok.Data;
+
+/**
+ * ${comments}
+ * 
+ * @author ${author}
+ * @email ${email}
+ * @date ${datetime}
+ */
+@Data
+@TableName("${tableName}")
+public class ${className}Entity implements Serializable {
+	private static final long serialVersionUID = 1L;
+
+#foreach ($column in $columns)
+	/**
+	 * $column.comments
+	 */
+	#if($column.columnName == $pk.columnName)
+		@TableId(value = "id", type = IdType.ASSIGN_ID)
+		@JsonSerialize(using = ToStringSerializer.class)
+		private $column.attrType $column.attrname;
+	#elseif($column.columnName == "LocalDateTime")
+		@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+		@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+		@JsonSerialize(using = ToStringSerializer.class)
+		private $column.attrType $column.attrname;
+	#else
+		@JsonSerialize(using = ToStringSerializer.class)
+		private $column.attrType $column.attrname;
+	#end
+#end
+
+}

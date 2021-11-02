@@ -1,0 +1,22 @@
+package ${package}.${moduleName}.service;
+
+import com.baomidou.mybatisplus.extension.service.IService;
+import ${package}.${moduleName}.entity.${className}Entity;
+
+import java.util.Map;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import org.springblade.core.tool.api.R;
+import com.hg.manage.vo.req.BaseReqVO;
+
+/**
+ * ${comments}
+ *
+ * @author ${author}
+ * @email ${email}
+ * @date ${datetime}
+ */
+public interface ${className}Service extends IService<${className}Entity> {
+
+    R<IPage<${className}Entity>> queryPage(Map<String, Object> params,BaseReqVO baseReqVO);
+}
+
